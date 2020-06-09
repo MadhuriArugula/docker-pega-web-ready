@@ -12,8 +12,8 @@ LABEL vendor="Pegasystems Inc." \
 ENV PEGA_DOCKER_VERSION=${VERSION:-CUSTOM_BUILD}
 
 # Create directory for storing heapdump
-RUN mkdir -p /heapdumps123  && \
-    chmod 770 /heapdumps123
+RUN mkdir -p /heapdumps1234  && \
+    chmod 770 /heapdumps1234
 
 # Create common directory for mounting configuration and libraries
 RUN mkdir -p /opt/pega && \
