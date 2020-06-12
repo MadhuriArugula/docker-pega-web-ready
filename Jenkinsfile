@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        echo 'Setting up cloud clusters'
+        echo 'Setting up EKS cloud cluster'
         echo ' Init!!!!'
         sleep 60
       }
@@ -18,6 +18,7 @@ pipeline {
     stage('Tests') {
       steps {
         echo 'Running Tests!!'
+        echo ' Running EKS Tests!!'
         sleep 30
       }
     }
