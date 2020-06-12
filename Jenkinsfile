@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('first') {
       steps {
-        echo 'PRs from same repository working!!'
+        echo 'PR from same repository different branch!!'
         echo ' In First stage'
         //sleep 120
         //  error "Failing it .........."
@@ -15,12 +15,6 @@ pipeline {
         echo 'hello there!!'
         echo ' In second stage'
 
-      }
-    }
-
-    stage('third') {
-      steps {
-        echo 'In Third stage'
       }
     }
   }
