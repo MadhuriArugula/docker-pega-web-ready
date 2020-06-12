@@ -4,13 +4,14 @@ pipeline {
     stage('Setup') {
       steps {
         echo 'Setting up EKS cloud cluster'
-        sleep 60
+        echo ' Setting up'
+        sleep 10
       }
     }
      stage('Deploy') {
       steps {
         echo ' Deploying charts and building images'
-        sleep 30
+        sleep 10
       }
     }
 
@@ -18,7 +19,7 @@ pipeline {
       steps {
         echo 'Running Tests!!'
         echo ' Running EKS Tests!!'
-        sleep 30
+        sleep 10
       }
     }
   }
