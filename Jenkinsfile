@@ -14,7 +14,6 @@ pipeline {
       steps {
         echo 'hello there!!'
         echo ' In second stage'
-        echo ' Hey!! Change from different branch'
 
       }
     }
