@@ -2,6 +2,6 @@
 
 stage("First Stage") {
  jobMap = [:]
- jobMap["job"] = "../kubernetes-test-orchestrator"
+ jobMap["job"] = "../kubernetes-test-orchestrator/master"
  build jobMap
 }
