@@ -1,5 +1,7 @@
 #!/usr/bin/env groovy
-
+stage ("SetUp") {
+ checkout scm
+}
 stage("Trigger Orchestrator") {
  jobMap = [:]
  jobMap["job"] = "../../kubernetes-test-orchestrator/master"
