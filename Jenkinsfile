@@ -4,4 +4,5 @@ stage("First Stage") {
  jobMap = [:]
  jobMap["job"] = "../kubernetes-test-orchestrator/master"
  build jobMap
+ echo "Test"
 }
