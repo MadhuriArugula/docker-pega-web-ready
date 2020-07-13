@@ -14,10 +14,10 @@ node {
     sh "docker build --no-cache -t ${imageName} ."
     sh "docker push ${imageName}"
   }
-  Jenkins.instance.pluginManager.plugins.each{
-    plugin -> 
-    println ("${plugin.getDisplayName()} (${plugin.getShortName()}): ${plugin.getVersion()}")
-    }
+//  Jenkins.instance.pluginManager.plugins.each{
+//    plugin -> 
+//    println ("${plugin.getDisplayName()} (${plugin.getShortName()}): ${plugin.getVersion()}")
+//    }
 //   if (env.CHANGE_ID) {
 //          pullRequest.labels.each{
 //             echo "label: $it"
