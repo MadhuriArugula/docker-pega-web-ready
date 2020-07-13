@@ -15,6 +15,11 @@ node {
     sh "docker tag pega-web-ready:latest cirrus-docker.jfrog.io/github-web-ready:${env.BUILD_NUMBER}"
     sh "docker push cirrus-docker.jfrog.io/github-web-ready:${env.BUILD_NUMBER}"
   }
+  if (env.BRANCH_NAME ==~ /PR-\d+/) {
+         pullRequest.labels.each{
+            echo "label: $it"
+         }
+     }
  }
  stage("Trigger Orchestrator") {
   jobMap = [:]
