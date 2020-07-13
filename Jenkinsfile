@@ -1,3 +1,5 @@
+#!/usr/bin/env groovy
+
 pipeline {
   agent any
   stages {
@@ -5,7 +7,7 @@ pipeline {
       steps {
         echo 'Setting up cloud clusters'
         echo ' Init!!!!'
-         pullRequest.labels.each{
+        pullRequest.labels.each{
              echo "label: $it"
           }
       }
