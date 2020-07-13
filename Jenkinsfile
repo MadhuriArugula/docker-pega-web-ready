@@ -3,6 +3,8 @@
 node {
  stage ("SetUp") {
   checkout scm
+  sh "ls -la"
+  sh "docker --help"
  }
  stage("Trigger Orchestrator") {
   jobMap = [:]
