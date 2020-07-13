@@ -3,8 +3,8 @@
 node {
  stage ("SetUp") {
   checkout scm
-  sh "ls -la"
-  sh "docker --help"
+  sh "./gradlew buildImage"
+  sh "docker images"
  }
  stage("Trigger Orchestrator") {
   jobMap = [:]
