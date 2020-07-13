@@ -1,4 +1,5 @@
 #!/usr/bin/env groovy
+def cloudDockerRegistryCredentialsId = '24cb9b3a-f0c3-4e12-b5dc-bfeead404fba'
 
 node {
  stage ("SetUp") {
