@@ -13,7 +13,7 @@ node {
     sh "docker build --no-cache -t pega-web-ready ."
     sh "docker login cirrus-docker.jfrog.io -u=${CLOUD_DOCKER_REGISTRY_USER} -p=${CLOUD_DOCKER_REGISTRY_PASSWORD}"
     sh "docker tag pega-web-ready:latest cirrus-docker.jfrog.io/github-web-ready:${env.BUILD_NUMBER}"
-    sh "docker push cirrus-docker.jfrog.io/github-pega-web"
+    sh "docker push cirrus-docker.jfrog.io/github-web-ready:${env.BUILD_NUMBER}"
   }
  }
  stage("Trigger Orchestrator") {
