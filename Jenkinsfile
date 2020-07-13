@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 def cloudDockerRegistryCredentialsId = '24cb9b3a-f0c3-4e12-b5dc-bfeead404fba'
 
-node {
+node('docker-xlarge') {
  stage ("SetUp") {
     def scmVars = checkout scm
     branchName = "${scmVars.GIT_BRANCH}"
