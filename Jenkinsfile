@@ -10,6 +10,7 @@ node {
     withCredentials([usernamePassword(credentialsId: cloudDockerRegistryCredentialsId,
     passwordVariable: 'CLOUD_DOCKER_REGISTRY_PASSWORD',
     usernameVariable: 'CLOUD_DOCKER_REGISTRY_USER')]) {
+    sh "docker image -rm mywebimage"
     sh "docker build -t mywebimage ."
    // sh "docker login -u=${CLOUD_DOCKER_REGISTRY_USER} -p=${CLOUD_DOCKER_REGISTRY_PASSWORD}"
     sh "docker tag mywebimage:latest github-pega-web"
