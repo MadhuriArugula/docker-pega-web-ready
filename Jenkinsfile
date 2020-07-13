@@ -12,7 +12,7 @@ node {
     usernameVariable: 'CLOUD_DOCKER_REGISTRY_USER')]) {
     echo "******************"
     sh "env"
-    sh "docker rm mywebimage"
+    sh "docker rmi -f mywebimage"
     sh "docker build -t mywebimage ."
    // sh "docker login -u=${CLOUD_DOCKER_REGISTRY_USER} -p=${CLOUD_DOCKER_REGISTRY_PASSWORD}"
     sh "docker tag mywebimage:latest github-pega-web"
