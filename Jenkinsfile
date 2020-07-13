@@ -14,7 +14,7 @@ node('docker-xlarge') {
     sh "env"
     sh "docker rmi -f mywebimage"
     sh "docker build --no-cache -t mywebimage ."
-   // sh "docker login -u=${CLOUD_DOCKER_REGISTRY_USER} -p=${CLOUD_DOCKER_REGISTRY_PASSWORD}"
+   sh "docker login "https://cirrus.jfrog.io/cirrus" -u=${CLOUD_DOCKER_REGISTRY_USER} -p=${CLOUD_DOCKER_REGISTRY_PASSWORD}"
     sh "docker tag mywebimage:latest cirrus-docker.jfrog.io/github-pega-web"
     sh "docker push cirrus-docker.jfrog.io/github-pega-web"
   }
