@@ -1,29 +1,10 @@
 #!/usr/bin/env groovy
 
-pipeline {
-  agent any
-  stages {
-    stage('Setup') {
-      steps {
-        echo 'Setting up cloud clusters'
-        echo ' Init!!!!'
+
+node {
+    stage('Build') {
         pullRequest.labels.each{
              echo "label: $it"
           }
-      }
     }
-     stage('Deploy') {
-      steps {
-        echo ' Deploying charts and building images'
-        
-      }
-    }
-
-    stage('Tests') {
-      steps {
-        echo 'Running Tests!!'
-        
-      }
-    }
-  }
 }
