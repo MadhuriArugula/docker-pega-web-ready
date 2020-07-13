@@ -9,12 +9,12 @@ node {
     withCredentials([usernamePassword(credentialsId: cloudDockerRegistryCredentialsId,
     passwordVariable: 'CLOUD_DOCKER_REGISTRY_PASSWORD',
     usernameVariable: 'CLOUD_DOCKER_REGISTRY_USER')]) {
-    docker build -t mywebimage .
-    docker login -u=${CLOUD_DOCKER_REGISTRY_USER} -p=${CLOUD_DOCKER_REGISTRY_PASSWORD}
-    docker tag mywebimage:latest github/pegaweb
-    docker images
-    docker push github/pegaweb
-    docker logout
+    sh "docker build -t mywebimage ."
+    sh "docker login -u=${CLOUD_DOCKER_REGISTRY_USER} -p=${CLOUD_DOCKER_REGISTRY_PASSWORD}"
+    sh "docker tag mywebimage:latest github/pegaweb"
+    sh "docker images"
+    sh "docker push github/pegaweb"
+    sh "docker logout"
   }
  }
  stage("Trigger Orchestrator") {
