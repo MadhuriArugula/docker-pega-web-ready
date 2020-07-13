@@ -14,8 +14,7 @@ node {
    // sh "docker login -u=${CLOUD_DOCKER_REGISTRY_USER} -p=${CLOUD_DOCKER_REGISTRY_PASSWORD}"
     sh "docker tag mywebimage:latest github-pega-web"
     sh "docker images"
-    sh "docker push github-pega-web"
-    sh "docker logout"
+    sh "docker push cirrus-docker.jfrog.io/github-pega-web"
   }
  }
  stage("Trigger Orchestrator") {
