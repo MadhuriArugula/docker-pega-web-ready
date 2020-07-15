@@ -11,6 +11,8 @@ node {
     sh 'docker login -u ${ARTIFACTORY_USER} -p ${ARTIFACTORY_PASSWORD} docker-dev.bin.pega.io'
     sh "docker build --no-cache -t ${imageName} ."
     sh "docker push ${imageName}"
+    sh "docker pull ${imageName}"
+    sh "docker image ls"
   }
 //   if (env.CHANGE_ID) {
 //          pullRequest.labels.each{
