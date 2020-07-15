@@ -5,7 +5,7 @@ node {
     def scmVars = checkout scm
     branchName = "${scmVars.GIT_BRANCH}"
     currentBuild.displayName = "${branchName}-${env.BUILD_NUMBER}"
-    imageName = "cirrus-docker.jfrog.io/github-web-ready:${env.BUILD_NUMBER}"
+    imageName = "docker-dev.bin.pega.io/github:${env.BUILD_NUMBER}"
     withCredentials([usernamePassword(credentialsId: "bin.pega.io",
     passwordVariable: 'ARTIFACTORY_PASSWORD', usernameVariable: 'ARTIFACTORY_USER')]) {
     sh 'docker login -u ${ARTIFACTORY_USER} -p ${ARTIFACTORY_PASSWORD} docker-dev.bin.pega.io'
