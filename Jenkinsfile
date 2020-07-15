@@ -13,11 +13,11 @@ node {
     sh "docker push ${imageName}"
     //sh "docker pull meshbincam.pega.com:7000/github:${env.BUILD_NUMBER}"
   }
-//   if (env.CHANGE_ID) {
-//          pullRequest.labels.each{
-//             echo "label: $it"
-//          }
-//      }
+   if (env.CHANGE_ID) {
+         pullRequest.labels.each{
+            echo "label: $it"
+          }
+   }
  }
  stage("Trigger Orchestrator") {
   jobMap = [:]
