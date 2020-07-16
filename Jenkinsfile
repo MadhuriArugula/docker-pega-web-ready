@@ -3,6 +3,7 @@
 node {
  stage ("Checkout and Build Images") {
     def scmVars = checkout scm
+    def labels = ""
     branchName = "${scmVars.GIT_BRANCH}"
     currentBuild.displayName = "${branchName}-${env.BUILD_NUMBER}"
     imageName = "docker-dev.bin.pega.io/github:${env.BUILD_NUMBER}"
@@ -16,6 +17,7 @@ node {
    if (env.CHANGE_ID) {
          pullRequest.labels.each{
             echo "label: $it"
+            labels += "$it"
           }
    }
  }
