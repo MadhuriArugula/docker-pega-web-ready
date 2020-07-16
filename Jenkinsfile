@@ -11,7 +11,7 @@ node {
         validateProviderLabel(it)
         labels += "$it,"
       }
-        labels = labels.substring(0,labels.length())
+        labels = labels.substring(0,labels.length()-1)
         echo "PR labels -> $labels"
      }else {
        currentBuild.result = 'ABORTED'
