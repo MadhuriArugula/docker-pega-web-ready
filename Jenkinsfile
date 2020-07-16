@@ -2,17 +2,17 @@
 
 def labels = ""
 def imageName = ""
-node {
+node{
 
   stage("Initialze"){
       if (env.CHANGE_ID) {
         pullRequest.labels.each{
         echo "label: $it"
-        validateProviderLabel($it)
+        validateProviderLabel(it)
         labels += "$it,"
       }
-        labels = labels.subString(0,labels.length())
-        echo ${labels}
+        labels = labels.substring(0,labels.length()-1)
+        echo "PR labels -> $labels"
      }else {
        currentBuild.result = 'ABORTED'
        throw new Exception("Aborting as this is not a PR job")
@@ -22,7 +22,6 @@ node {
   stage ("Checkout and Build Images") {
       def scmVars = checkout scm
       branchName = "${scmVars.GIT_BRANCH}"
-      currentBuild.displayName = "${branchName}-${env.BUILD_NUMBER}"
       imageName = "docker-dev.bin.pega.io/github:${env.BUILD_NUMBER}"
       withCredentials([usernamePassword(credentialsId: "bin.pega.io",
       passwordVariable: 'ARTIFACTORY_PASSWORD', usernameVariable: 'ARTIFACTORY_USER')]) {
@@ -36,7 +35,7 @@ node {
     jobMap = [:]
     jobMap["job"] = "../kubernetes-test-orchestrator/US-366319"
     jobMap["parameters"] = [
-                            string(name: 'PROVIDER', value: labels),
+                            string(name: 'PROVIDERS', value: labels),
                             string(name: 'WEB_IMAGE_NAME', value: imageName),
                         ]
     jobMap["propagate"] = true
