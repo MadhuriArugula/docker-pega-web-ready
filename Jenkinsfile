@@ -8,7 +8,7 @@ node {
       if (env.CHANGE_ID) {
         pullRequest.labels.each{
         echo "label: $it"
-        validateProviderLabel($it)
+        validateProviderLabel(it)
         labels += "$it,"
       }
         labels = labels.subString(0,labels.length())
