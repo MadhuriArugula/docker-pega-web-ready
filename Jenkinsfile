@@ -2,7 +2,7 @@
 
 def labels = ""
 def imageName = ""
-node {
+node("pc-2xlarge") {
 
   stage("Initialze"){
       if (env.CHANGE_ID) {
@@ -22,7 +22,6 @@ node {
   stage ("Checkout and Build Images") {
       def scmVars = checkout scm
       branchName = "${scmVars.GIT_BRANCH}"
-      currentBuild.displayName = "${branchName}-${env.BUILD_NUMBER}"
       imageName = "docker-dev.bin.pega.io/github:${env.BUILD_NUMBER}"
       withCredentials([usernamePassword(credentialsId: "bin.pega.io",
       passwordVariable: 'ARTIFACTORY_PASSWORD', usernameVariable: 'ARTIFACTORY_USER')]) {
