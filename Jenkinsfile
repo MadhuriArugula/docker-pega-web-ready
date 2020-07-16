@@ -17,8 +17,9 @@ node {
    if (env.CHANGE_ID) {
          pullRequest.labels.each{
             echo "label: $it"
-            labels += "$it"
+            labels += "$it,"
           }
+    echo ${labels}
    }
  }
  stage("Trigger Orchestrator") {
