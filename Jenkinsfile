@@ -2,7 +2,7 @@
 
 def labels = ""
 def imageName = ""
-node("pc-2xlarge") {
+node{
 
   stage("Initialze"){
       if (env.CHANGE_ID) {
