@@ -36,7 +36,7 @@ node {
     jobMap = [:]
     jobMap["job"] = "../kubernetes-test-orchestrator/US-366319"
     jobMap["parameters"] = [
-                            string(name: 'PROVIDER', value: labels),
+                            string(name: 'PROVIDERS', value: labels),
                             string(name: 'WEB_IMAGE_NAME', value: imageName),
                         ]
     jobMap["propagate"] = true
