@@ -5,6 +5,7 @@ def imageName = ""
 node("docker"){
 
   stage("Initialze"){
+      //Just a comment
       if (env.CHANGE_ID) {
         pullRequest.labels.each{
         echo "label: $it"
