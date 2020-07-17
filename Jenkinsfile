@@ -2,7 +2,7 @@
 
 def labels = ""
 def imageName = ""
-node{
+node("docker"){
 
   stage("Initialze"){
       if (env.CHANGE_ID) {
