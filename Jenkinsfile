@@ -6,7 +6,6 @@ node("docker"){
 
   stage("Initialze"){
       if (env.CHANGE_ID) {
-        //Just a comment
         pullRequest.comment("Starting pipeline for PR validation -> ${env.BRANCH_NAME}")
         pullRequest.labels.each{
         echo "label: $it"
