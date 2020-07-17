@@ -5,8 +5,8 @@ def imageName = ""
 node("docker"){
 
   stage("Initialze"){
-      //Just a comment
       if (env.CHANGE_ID) {
+        pullRequest.comment("Starting pipeline for PR validation -> ${env.BRANCH_NAME}")
         pullRequest.labels.each{
         echo "label: $it"
         validateProviderLabel(it)
