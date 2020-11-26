@@ -72,7 +72,8 @@ RUN mkdir -p /opt/pega/streamvol && \
 ENV JDBC_URL='' \
     DB_USERNAME='' \
     DB_PASSWORD='' \
-    JDBC_CLASS=''
+    JDBC_CLASS='' \
+    TEST_ENV=''
 
 # Load a default PostgreSQL driver on startup
 ENV JDBC_DRIVER_URI=''
